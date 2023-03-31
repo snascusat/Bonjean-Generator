@@ -1,6 +1,6 @@
 
 def generateTable():
-    print("Hey there, welcome hydrostatics table generator :)"
+    print("Hey there, welcome to hydrostatics table generator :)"
           "Give us your vessel particulars and we're all set to begin!"
           "\n")
 
@@ -52,12 +52,11 @@ def generateTable():
         halfBreadth = []
         print("WATERLINE : ", waterline)
         for station in stnList:
-            halfBreadth.append(float(input("Station",station,":")))
+            halfBreadth.append(float(input("Station "+str(station)+":")))
         offsetTable.append(halfBreadth)
 
     print("The Table of Offsets:"
           "\n",offsetTable)
-
 
 
 
