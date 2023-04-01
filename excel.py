@@ -129,12 +129,4 @@ for n, station in enumerate(stations):
 
 del wb["Sheet"]
 
-#Adding values
-# for i, lst in enumerate(list_of_lists):
-#     worksheet = workbook.create_sheet(title=f"Sheet {i+1}")
-    
-#     for j, value in enumerate(lst):
-#         worksheet.cell(row=j+1, column=1, value=value)
-
-
 wb.save("sam.xlsx")
