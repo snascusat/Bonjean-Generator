@@ -2,10 +2,7 @@ from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, Color, PatternFill
 from smGenerator import smgenerator
 
-def bonjeanGenerator(sample, path):
-
-
-    depthOfVessel = 20
+def bonjeanGenerator(sample, path, depthOfVessel):
 
     # EXTRACTING VALUES FROM WORKSHEET
     wb = load_workbook(sample)
@@ -25,7 +22,7 @@ def bonjeanGenerator(sample, path):
 
     wb.close()
 
-    wtlnSpacing = depthOfVessel / waterlines[-1]
+    wtlnSpacing = int(depthOfVessel) / waterlines[-1]
     sm = smgenerator(waterlines)
 
 

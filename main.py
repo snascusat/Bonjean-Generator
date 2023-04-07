@@ -41,16 +41,15 @@ def selectFolder():
         message=foldername
     )
 
-# def toggle_theme():
-#     current_theme = customtkinter.get_appearance_mode()
-#     if current_theme == "light":
-#         customtkinter.set_appearance_mode("dark")
-#     else:
-#         customtkinter.set_appearance_mode("light")
 
+def onGenerate(offset, savePath, depth):
+    if not depth:
+        showinfo(
+            title='Error',
+            message='You have not entered the depth of the vessel.'
+        )
 
-def onGenerate(offset, savePath):
-    bonjeanGenerator(offset, savePath)
+    bonjeanGenerator(offset, savePath, depth)
     file = 'bonjeanSheet.xlsx'
     path = os.path.join(savePath, file)
 
@@ -75,10 +74,13 @@ label.pack(pady=12, padx=10)
 button = customtkinter.CTkButton(master=frame, text="Select Offset Table", command=selectFile)
 button.pack(pady=12, padx=10)
 
+entry = customtkinter.CTkEntry(master=frame, placeholder_text="Depth of the vessel")
+entry.pack(pady=12, padx=10)
+
 button = customtkinter.CTkButton(master=frame, text="Select folder to save bonjean", command=selectFolder)
 button.pack(pady=12, padx=10)
 
-checkbox = customtkinter.CTkButton(master=frame, text="Generate Bonjean", command= lambda: onGenerate(offset, savePath))
+checkbox = customtkinter.CTkButton(master=frame, text="Generate Bonjean", command= lambda: onGenerate(offset, savePath, entry.get()))
 checkbox.pack(pady=12, padx=10)
 
 creditz = customtkinter.CTkLabel(master=frame, text=' Made with 💙 by mhdseby \n Powered by Royal Shippies ', )
